@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Search from '../Search/Search';
 import './Home.css';
 import Event from '../Event/Event';
+import Loading from '../Loading/Loading';
 
 const Home = () => {
     const [events, setEvents] = useState([]);
@@ -13,9 +14,13 @@ const Home = () => {
             .then(data => setEvents(data));
     }, []);
 
+
     return (
         <Container className="my-5">
             <Search></Search>
+
+            {/* For Loading Screen */}
+            {events.length === 0 ? <Loading></Loading> : null}
 
             {/* Events */}
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-4">

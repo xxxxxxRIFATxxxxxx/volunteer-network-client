@@ -63,7 +63,7 @@ const Footer = () => {
                             />
 
                             <p>
-                                <NavLink to="/home" className="text-white text-decoration-none">Home</NavLink>
+                                <NavLink to="/" className="text-white text-decoration-none">Home</NavLink>
                             </p>
 
                             <p>
