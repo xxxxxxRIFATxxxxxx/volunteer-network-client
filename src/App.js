@@ -13,6 +13,8 @@ import VolunteerRegister from './Components/VolunteerRegister/VolunteerRegister'
 import Profile from './Components/Profile/Profile';
 import VolunteerList from './Components/VolunteerList/VolunteerList';
 import Footer from './Components/Footer/Footer';
+import Donation from './Components/Donation/Donation';
+import Blog from './Components/Blog/Blog';
 
 function App() {
   return (
@@ -38,6 +40,18 @@ function App() {
 
         <Route exact path="/volunteerList">
           <VolunteerList></VolunteerList>
+        </Route>
+
+        <Route exact path="/events">
+          <Home></Home>
+        </Route>
+
+        <Route exact path="/donation">
+          <Donation></Donation>
+        </Route>
+
+        <Route exact path="/blog">
+          <Blog></Blog>
         </Route>
 
         <Route path="*">
