@@ -12,6 +12,7 @@ import NotFound from './Components/NotFound/NotFound';
 import VolunteerRegister from './Components/VolunteerRegister/VolunteerRegister';
 import Profile from './Components/Profile/Profile';
 import VolunteerList from './Components/VolunteerList/VolunteerList';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
           <NotFound></NotFound>
         </Route>
       </Switch>
+
+      <Footer></Footer>
     </Router>
   );
 }
