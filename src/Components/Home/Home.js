@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import Search from '../Search/Search';
 import './Home.css';
 
 const Home = () => {
@@ -11,9 +13,9 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
-            {events.length};
-        </div>
+        <Container className="my-5">
+            <Search></Search>
+        </Container>
     );
 };
 

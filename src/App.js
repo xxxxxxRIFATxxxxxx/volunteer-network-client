@@ -11,6 +11,7 @@ import AddEvent from './Components/AddEvent/AddEvent';
 import NotFound from './Components/NotFound/NotFound';
 import VolunteerRegister from './Components/VolunteerRegister/VolunteerRegister';
 import Profile from './Components/Profile/Profile';
+import VolunteerList from './Components/VolunteerList/VolunteerList';
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
 
         <Route exact path="/profile">
           <Profile></Profile>
+        </Route>
+
+        <Route exact path="/volunteerList">
+          <VolunteerList></VolunteerList>
         </Route>
 
         <Route path="*">
