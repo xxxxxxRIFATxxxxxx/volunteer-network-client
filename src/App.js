@@ -17,6 +17,7 @@ import Donation from './Components/Donation/Donation';
 import Blog from './Components/Blog/Blog';
 import AuthProvider from './Context/AuthProvider';
 import Register from './Components/Register/Register';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -29,29 +30,29 @@ function App() {
             <Home></Home>
           </Route>
 
-          <Route exact path="/addEvent">
+          <PrivateRoute exact path="/addEvent">
             <AddEvent></AddEvent>
-          </Route>
+          </PrivateRoute>
 
-          <Route exact path="/volunteerRegister">
+          <PrivateRoute exact path="/events/volunteerRegister/:id">
             <VolunteerRegister></VolunteerRegister>
-          </Route>
+          </PrivateRoute>
 
-          <Route exact path="/profile">
+          <PrivateRoute exact path="/profile">
             <Profile></Profile>
-          </Route>
+          </PrivateRoute>
 
-          <Route exact path="/volunteerList">
+          <PrivateRoute exact path="/volunteerList">
             <VolunteerList></VolunteerList>
-          </Route>
+          </PrivateRoute>
 
           <Route exact path="/events">
             <Home></Home>
           </Route>
 
-          <Route exact path="/donation">
+          <PrivateRoute exact path="/donation">
             <Donation></Donation>
-          </Route>
+          </PrivateRoute>
 
           <Route exact path="/blog">
             <Blog></Blog>

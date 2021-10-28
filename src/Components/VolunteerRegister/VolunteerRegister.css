@@ -1,0 +1,23 @@
+.logo {
+    width: 200px;
+}
+
+form {
+    width: 37%;
+    margin: auto;
+}
+
+form textarea {
+    resize: none;
+    overflow:hidden;
+}
+
+@media only screen and (max-width: 768px) {
+    form {
+        width: 100%;
+    }
+
+    .register-title {
+        font-size: 18px !important;
+    }
+}

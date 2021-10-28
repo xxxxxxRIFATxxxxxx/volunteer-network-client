@@ -1,9 +1,28 @@
 import React from 'react';
 import './Header.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const Header = () => {
+    const { user, logout, setUser, setErrorMessage, setIsLoading } = useAuth();
+    const history = useHistory();
+    const redirect_uri = '/register';
+
+    const handleLogout = () => {
+        logout()
+            .then(() => {
+                setUser({});
+                history.push(redirect_uri);
+            })
+            .catch((error) => {
+                setErrorMessage(error.message);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    };
+
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -36,9 +55,27 @@ const Header = () => {
                             <button className="btn w-100">Blog</button>
                         </NavLink>
 
-                        <NavLink className="nav-link" to="/register">
-                            <button className="btn btn-primary px-5 w-100 fw-normal">Register</button>
-                        </NavLink>
+                        {
+                            user.email
+                                ?
+                                <>
+                                    <NavLink className="nav-link" to="/profile">
+                                        <button className="btn w-100 fw-bold">
+                                            {user.displayName}
+                                        </button>
+                                    </NavLink>
+
+                                    <NavLink className="nav-link" to="">
+                                        <button onClick={handleLogout} className="btn btn-primary px-5 w-100 fw-normal">Logout</button>
+                                    </NavLink>
+                                </>
+
+                                :
+
+                                <NavLink className="nav-link" to="/register">
+                                    <button className="btn btn-primary px-5 w-100 fw-normal">Register</button>
+                                </NavLink>
+                        }
 
                         <NavLink className="nav-link" to="/admin">
                             <button className="btn btn-dark px-5 w-100 fw-normal">Admin</button>
