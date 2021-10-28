@@ -1,0 +1,7 @@
+.sideBar .logo {
+    width: 60%;
+}
+
+.sideBar .selected {
+    color: rgb(51, 51, 255) !important;
+}

@@ -37,6 +37,7 @@ const VolunteerRegister = () => {
     const history = useHistory();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+        data.banner = event.banner;
         setIsLoading(true);
 
         fetch("https://volunteer-network-server-1.herokuapp.com/volunteers", {
@@ -56,7 +57,7 @@ const VolunteerRegister = () => {
     };
 
     return (
-        <Container className="my-5">
+        <Container className="my-5 volunteer">
             {
                 isLoading
                     ?
@@ -110,7 +111,7 @@ const VolunteerRegister = () => {
                                     className="form-control border-0 border-bottom"
                                     placeholder="Description"
                                     value={event.description}
-                                    {...register("description")}
+                                    {...register("description", { required: true })}
                                     rows="1"
                                 >
                                 </textarea>
@@ -122,7 +123,7 @@ const VolunteerRegister = () => {
                                     type="text"
                                     placeholder="Event Title"
                                     value={event.eventTitle}
-                                    {...register("eventTitle")}
+                                    {...register("eventTitle", { required: true })}
                                 />
                             </div>
 

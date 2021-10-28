@@ -18,6 +18,7 @@ import Blog from './Components/Blog/Blog';
 import AuthProvider from './Context/AuthProvider';
 import Register from './Components/Register/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Admin from './Components/Admin/Admin';
 
 function App() {
   return (
@@ -30,10 +31,6 @@ function App() {
             <Home></Home>
           </Route>
 
-          <PrivateRoute exact path="/addEvent">
-            <AddEvent></AddEvent>
-          </PrivateRoute>
-
           <PrivateRoute exact path="/events/volunteerRegister/:id">
             <VolunteerRegister></VolunteerRegister>
           </PrivateRoute>
@@ -43,7 +40,11 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute exact path="/volunteerList">
-            <VolunteerList></VolunteerList>
+            <Admin></Admin>
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/addEvent">
+            <Admin></Admin>
           </PrivateRoute>
 
           <Route exact path="/events">
@@ -61,6 +62,10 @@ function App() {
           <Route exact path="/register">
             <Register></Register>
           </Route>
+
+          <PrivateRoute exact path="/admin">
+            <Admin></Admin>
+          </PrivateRoute>
 
           <Route path="*">
             <NotFound></NotFound>
